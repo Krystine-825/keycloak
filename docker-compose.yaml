@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  app:
+    image: keycloak  # Change this if you want to pull from a registry
+    build:
+      context: .  # Uses Dockerfile in the current directory
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_PROFILES_ACTIVE: prod  # Change this based on your needs
+    restart: unless-stopped
